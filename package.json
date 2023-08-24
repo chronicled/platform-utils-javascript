@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chronicled/platform-utils-js.git"
+    "url": "git+https://github.com/chronicled/platform-utils-javascript.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chronicled/platform-utils-js/issues"
+    "url": "https://github.com/chronicled/platform-utils-javascript/issues"
   },
-  "homepage": "https://github.com/chronicled/platform-utils-js#readme",
+  "homepage": "https://github.com/chronicled/platform-utils-javascript#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
     "continuation-local-storage": "^3.2.1",
