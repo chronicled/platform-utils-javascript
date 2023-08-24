@@ -1,0 +1,61 @@
+defaults: &defaults
+  working_directory: ~/platform-utils-js
+  docker:
+    - image: circleci/node:10
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}--{{ checksum "package-lock.json" }}
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+      - run: npm ci
+      - run: npm run build
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}--{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: '.'
+          paths:
+            - '.'
+
+  static_tests:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: '.'
+      - run: npm run lint
+      - run: npm test
+
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: '.'
+      - run: npm --no-git-tag-version version `npm view @chronicled/platform-utils-js dist-tags.alpha`
+      - run: npm --no-git-tag-version version prerelease
+      - run: git config --global user.email $GIT_EMAIL
+      - run: git config --global user.name $GIT_USERNAME
+      - run: git tag -a v`node scripts/version.js` -m v`node scripts/version.js`
+      - run: npm publish --tag alpha
+      - run: 'mkdir -p ~/.ssh && ssh-keyscan -H github.com >> ~/.ssh/known_hosts'
+      - run: git push --tags
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build
+      - static_tests:
+          requires:
+            - build
+      - publish:
+          filters:
+            branches:
+              only: develop
+          requires:
+            - static_tests

@@ -1,0 +1,67 @@
+{
+  "name": "@chronicled/platform-utils-js",
+  "version": "0.1.0-alpha",
+  "description": "Exports basic utility libraries for use in platform components",
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "scripts": {
+    "lint": "eslint --ext .js,ts . && prettier --check \"src/**/*.{js,ts}\"",
+    "test": "jest",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "watch-test": "jest --watch",
+    "lint:fix": "prettier --write \"src/**/*.{js,ts}\"; eslint --ext .js,ts --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chronicled/platform-utils-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chronicled/platform-utils-js/issues"
+  },
+  "homepage": "https://github.com/chronicled/platform-utils-js#readme",
+  "dependencies": {
+    "@types/continuation-local-storage": "^3.2.2",
+    "@types/lodash": "^4.14.141",
+    "@types/nconf": "^0.10.0",
+    "@types/node": "^12.7.9",
+    "bluebird": "^3.5.5",
+    "continuation-local-storage": "^3.2.1",
+    "lodash": "^4.17.14",
+    "nconf": "^0.10.0",
+    "nconf-yaml": "^1.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@chronicled/eslint-config": "0.0.2",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-with-typescript": "^9.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.8",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": "eslint --ext .js,.ts --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
+  }
+}
