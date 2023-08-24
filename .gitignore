@@ -1,0 +1,17 @@
+.DS_Store
+
+.idea/*
+node_modules/
+*.log
+log/*
+.tmp
+
+build/
+dist/
+temp/
+tmp/
+coverage/
+
+npm-debug.log
+config-local.*
+test.*

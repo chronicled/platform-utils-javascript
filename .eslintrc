@@ -1,0 +1,21 @@
+{
+  "extends": "@chronicled",
+  "rules": {
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/consistent-type-definitions": 0,
+    "@typescript-eslint/promise-function-async": 0,
+    "@typescript-eslint/consistent-type-assertions": 0,
+    "@typescript-eslint/semi": 0,
+    "@typescript-eslint/space-before-function-paren": 0,
+    "@typescript-eslint/return-await": 0,
+    "no-var": 0,
+    "@typescript-eslint/no-invalid-void-type": 0,
+    "@typescript-eslint/no-throw-literal": 0,
+    "@typescript-eslint/prefer-nullish-coalescing": 0,
+    "@typescript-eslint/restrict-template-expressions": 0,
+    "@typescript-eslint/prefer-reduce-type-parameter": 0,
+    "@typescript-eslint/method-signature-style": 0,
+    "@typescript-eslint/prefer-includes": 0
+  }
+}
