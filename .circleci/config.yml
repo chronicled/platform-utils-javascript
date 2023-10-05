@@ -4,7 +4,7 @@ version: 2.1
 executors:
   node-docker-executor:
     docker:
-      - image: cimg/node:14.21
+      - image: cimg/node:18.18
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
 
   fossa-attribution:
     docker:
-      - image: cimg/node:14.21
+      - image: cimg/node:18.18
     resource_class: small
     environment:
       BUILD_DUMMY_WASM_BINARY: 1
@@ -65,13 +65,13 @@ workflows:
                 - develop
           context: org-global
       - build:
-          context: npm      
+          context: npm
           filters:
             tags:
               only:
-                - /.*/                
+                - /.*/
       - publish:
-          context: npm      
+          context: npm
           requires:
             - build
           filters:
