@@ -2,9 +2,9 @@ import { AsyncLocalStorage } from 'async_hooks';
 
 const asyncLocalStorage = new AsyncLocalStorage<CorrelationContext>();
 
-type Returns<T> = () => T;
+export type Returns<T> = () => T;
 
-interface CorrelationContext {
+export interface CorrelationContext {
   correlationId?: string;
   causationId?: string;
   messageId?: string;

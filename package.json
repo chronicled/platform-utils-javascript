@@ -1,6 +1,6 @@
 {
   "name": "@chronicled/platform-utils-js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Exports basic utility libraries for use in platform components",
   "homepage": "https://github.com/chronicled/platform-utils-javascript#readme",
   "bugs": {
