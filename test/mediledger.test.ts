@@ -1,4 +1,4 @@
-import { shortenNodeName } from '../src/medileder';
+import { shortenNodeName } from '../src/mediledger';
 
 describe('shortenName', () => {
   test('returns input as is if length is 10 or less', () => {
