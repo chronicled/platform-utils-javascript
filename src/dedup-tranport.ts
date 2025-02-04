@@ -2,7 +2,6 @@ import Transport from 'winston-transport';
 import crypto from 'crypto';
 import winston from 'winston';
 import './utils';
-import _ from 'lodash';
 import { constructLogger } from './logger';
 
 type CacheItem = {
@@ -15,6 +14,7 @@ export class WinstonDedup extends Transport {
   logger: winston.Logger;
   dedupCache: Map<string, CacheItem>;
   logRepetitionCount: number;
+
   constructor(options: any) {
     super(options);
     this.timeout = options.timeout || 15000;
